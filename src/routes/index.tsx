@@ -5,7 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { GraduationCap, Briefcase, FileText, Award, ArrowUpRight, ZoomIn } from "lucide-react";
+import {
+  GraduationCap,
+  Briefcase,
+  FileText,
+  Award,
+  ArrowUpRight,
+  ZoomIn,
+  Code2,
+  Users,
+} from "lucide-react";
 import certNcastm from "@/assets/certificate-ncastm25.jpeg.asset.json";
 import certInternship from "@/assets/certificate-internship.jpeg.asset.json";
 
@@ -34,6 +43,7 @@ export const Route = createFileRoute("/")({
 const NAV = [
   { id: "about", label: "About" },
   { id: "education", label: "Education" },
+  { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
   { id: "research", label: "Research" },
   { id: "certifications", label: "Certifications" },
@@ -184,22 +194,97 @@ function Portfolio() {
         </Section>
 
         <Section id="education" eyebrow="Education" title="Academic background">
-          <article className="rounded-xl border border-border bg-card p-6">
-            <div className="flex min-w-0 items-start gap-4">
-              <GraduationCap className="mt-1 size-5 shrink-0 text-primary" aria-hidden="true" />
-              <div className="min-w-0">
-                <h3 className="text-lg font-semibold">B.E. Computer Science and Engineering</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  INFO Institute of Engineering, Kovilpalayam, Coimbatore
-                </p>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  Affiliated to Anna University, Chennai · Approved by AICTE, New Delhi · NAAC
-                  accredited and ISO 9001:2015 certified
-                </p>
+          <ul className="grid gap-4">
+            <li className="rounded-xl border border-border bg-card p-6">
+              <div className="flex min-w-0 items-start gap-4">
+                <GraduationCap className="mt-1 size-5 shrink-0 text-primary" aria-hidden="true" />
+                <div className="min-w-0">
+                  <h3 className="text-lg font-semibold">B.E. Computer Science and Engineering</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    INFO Institute of Engineering, Kovilpalayam, Coimbatore
+                  </p>
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    Affiliated to Anna University, Chennai · Approved by AICTE, New Delhi · NAAC
+                    accredited and ISO 9001:2015 certified
+                  </p>
+                </div>
               </div>
-            </div>
-          </article>
+            </li>
+            {[
+              {
+                title: "Higher Secondary Education",
+                school: "Karthik Vidhyalaya Matriculation Higher Secondary School",
+                year: "2023",
+                score: "72%",
+              },
+              {
+                title: "Secondary Education",
+                school: "Karthik Vidhyalaya Matriculation Higher Secondary School",
+                year: "2021",
+                score: "80%",
+              },
+            ].map((item) => (
+              <li key={item.title} className="rounded-xl border border-border bg-card p-6">
+                <div className="flex min-w-0 items-start gap-4">
+                  <GraduationCap className="mt-1 size-5 shrink-0 text-primary" aria-hidden="true" />
+                  <div className="min-w-0 flex-1">
+                    <div className="grid gap-1 sm:flex sm:items-baseline sm:justify-between sm:gap-4">
+                      <h3 className="text-lg font-semibold">{item.title}</h3>
+                      <p className="shrink-0 text-sm text-muted-foreground">{item.year}</p>
+                    </div>
+                    <p className="mt-1 text-sm text-muted-foreground">{item.school}</p>
+                    <p className="mt-3 text-sm text-muted-foreground">{item.score}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </Section>
+
+        <Section id="skills" eyebrow="Skills" title="Technical and personal strengths">
+          <div className="grid gap-6 sm:grid-cols-2">
+            {[
+              {
+                icon: Code2,
+                heading: "Hard skills",
+                tone: "text-primary",
+                items: [
+                  "Java",
+                  "SQL",
+                  "MySQL",
+                  "Git & GitHub",
+                  "Spring Boot",
+                  "Data Structures & Algorithms",
+                  "Python",
+                ],
+              },
+              {
+                icon: Users,
+                heading: "Soft skills",
+                tone: "text-accent",
+                items: ["Communication", "Teamwork", "Problem Solving", "Leadership"],
+              },
+            ].map(({ icon: Icon, heading, tone, items }) => (
+              <article key={heading} className="rounded-xl border border-border bg-card p-6">
+                <div className="flex items-center gap-3">
+                  <Icon className={`size-5 shrink-0 ${tone}`} aria-hidden="true" />
+                  <h3 className="text-base font-semibold">{heading}</h3>
+                </div>
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {items.map((skill) => (
+                    <li
+                      key={skill}
+                      className="rounded-md border border-border bg-secondary px-3 py-1.5 text-sm text-foreground"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </Section>
+
 
         <Section id="experience" eyebrow="Experience" title="Training">
           <article className="rounded-xl border border-border bg-card p-6">
