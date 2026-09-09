@@ -5,7 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { GraduationCap, Briefcase, FileText, Award, ArrowUpRight, ZoomIn } from "lucide-react";
+import {
+  GraduationCap,
+  Briefcase,
+  FileText,
+  Award,
+  ArrowUpRight,
+  ZoomIn,
+  Code2,
+  Users,
+} from "lucide-react";
 import certNcastm from "@/assets/certificate-ncastm25.jpeg.asset.json";
 import certInternship from "@/assets/certificate-internship.jpeg.asset.json";
 
@@ -34,6 +43,7 @@ export const Route = createFileRoute("/")({
 const NAV = [
   { id: "about", label: "About" },
   { id: "education", label: "Education" },
+  { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
   { id: "research", label: "Research" },
   { id: "certifications", label: "Certifications" },
