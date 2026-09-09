@@ -287,19 +287,15 @@ function Portfolio() {
 
       <Dialog open={lightbox !== null} onOpenChange={(open) => !open && setLightbox(null)}>
         <DialogContent className="max-w-[96vw] border-border bg-card p-3 sm:max-w-4xl">
-          <DialogTitle className="px-1 text-base">
-            {lightbox !== null ? CERTIFICATES[lightbox].title : ""}
-          </DialogTitle>
+          <DialogTitle className="px-1 text-base">{activeCert?.title ?? ""}</DialogTitle>
           <DialogDescription className="px-1 text-sm">
-            {lightbox !== null
-              ? `${CERTIFICATES[lightbox].issuer} · ${CERTIFICATES[lightbox].meta}`
-              : ""}
+            {activeCert ? `${activeCert.issuer} · ${activeCert.meta}` : ""}
           </DialogDescription>
-          {lightbox !== null && (
+          {activeCert && (
             <div className="max-h-[75dvh] overflow-auto rounded-lg bg-secondary">
               <img
-                src={CERTIFICATES[lightbox].src}
-                alt={CERTIFICATES[lightbox].alt}
+                src={activeCert.src}
+                alt={activeCert.alt}
                 className="mx-auto h-auto w-full max-w-none object-contain"
               />
             </div>
