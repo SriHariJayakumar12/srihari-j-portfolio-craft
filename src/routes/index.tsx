@@ -103,6 +103,7 @@ function Section({
 function Portfolio() {
   const active = useActiveSection();
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const activeCert = lightbox !== null ? CERTIFICATES[lightbox] : undefined;
 
   return (
     <div className="min-h-dvh bg-background text-foreground">
